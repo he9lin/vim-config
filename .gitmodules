@@ -1,0 +1,24 @@
+[submodule "nerdtree"]
+  path = bundle/nerdtree
+  url = git://github.com/scrooloose/nerdtree.git
+[submodule "vim-coffee-script"]
+  path = bundle/vim-coffee-script
+  url = https://github.com/kchmck/vim-coffee-script.git
+[submodule "vim-markdown"]
+  path = bundle/vim-markdown
+  url = git://github.com/tpope/vim-markdown.git
+[submodule "vim-fugitive"]
+  path = bundle/vim-fugitive
+  url = git://github.com/tpope/vim-fugitive.git
+[submodule "vim-rails"]
+  path = bundle/vim-rails
+  url = git://github.com/tpope/vim-rails.git
+[submodule "vim-rooter"]
+  path = bundle/vim-rooter
+  url = git://github.com/airblade/vim-rooter.git
+[submodule "vim-ruby"]
+  path = bundle/vim-ruby
+  url = git://github.com/vim-ruby/vim-ruby.git
+[submodule "vim-snipmate.vim"]
+  path = bundle/vim-snipmate.vim
+  url = url = git://github.com/msanders/snipmate.vim.git
