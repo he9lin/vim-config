@@ -19,3 +19,12 @@
 [submodule "vim-ruby"]
   path = bundle/vim-ruby
   url = git://github.com/vim-ruby/vim-ruby.git
+[submodule "bundle/vim-ack"]
+	path = bundle/vim-ack
+	url = git://github.com/mileszs/ack.vim.git
+[submodule "bundle/vim-unimpaired"]
+	path = bundle/vim-unimpaired
+	url = git://github.com/tpope/vim-unimpaired.git
+[submodule "bundle/vim-snipmate"]
+	path = bundle/vim-snipmate
+	url = git://github.com/msanders/snipmate.vim.git
