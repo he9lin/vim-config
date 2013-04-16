@@ -67,7 +67,7 @@ hi DiffDelete   gui=bold guifg=White guibg=SlateBlue
 hi DiffText     gui=NONE guifg=White guibg=SteelBlue
 hi LineNr       guifg=#545282 guibg=NONE
 hi MatchParen   guifg=#35AFED guibg=NONE
-hi Normal       guifg=#909090 guibg=#1C1C1C
+hi Normal       guifg=#CCCCCC guibg=#1C1C1C
 hi Search       guibg=#373849 guifg=#CED2FE
 hi Statement    gui=bold guifg=#6CAEFF guibg=NONE
 hi Todo         gui=NONE guifg=Green4 guibg=DeepSkyBlue1

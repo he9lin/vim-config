@@ -4,7 +4,7 @@
 " License:	Public Domain
 
 " A color theme with a white background. Modified from an existing theme.
-" 
+"
 " It's supposed to look like the Emacs standard colors, at least
 " for C. But Emacs has different categories, so it's not very good.
 
@@ -57,6 +57,6 @@ hi Special guifg=SlateBlue guibg=White
 hi Ignore guifg=White
 
 " Some specials (override hilinks)
-
+highlight ColorColumn guibg=#F2F2F2
 
 " vim: sw=2
