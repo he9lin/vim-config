@@ -8,15 +8,15 @@ syntax on
 " Set color theme
 " let g:cange_style = 'dark'
 if has("gui_macvim")
-  colorscheme github
+  colorscheme topfunky-light
+  set guifont=BPmono\ for\ Powerline:h15
+  set linespace=3
 else
   colorscheme jellybeans
 end
 
-set guifont=Source\ Code\ Pro:h13
-set linespace=2
+" set statusline=[%n]\ %<%.99f\ %h%w%m%r%y\ %{fugitive#statusline()}%{exists('*CapsLockStatusline')?CapsLockStatusline():''}%=%-16(\ %l,%c-%v\ %)%P
 set number
-set statusline=[%n]\ %<%.99f\ %h%w%m%r%y\ %{fugitive#statusline()}%{exists('*CapsLockStatusline')?CapsLockStatusline():''}%=%-16(\ %l,%c-%v\ %)%P
 set laststatus=2
 set tabstop=2
 set shiftwidth=2
@@ -71,6 +71,7 @@ map <Leader>m :w\|:!~/.rbenv/shims/ruby %<CR>
 
 " Handlbar hbs
 au BufNewFile,BufRead *.hbs set filetype=html
+au BufNewFile,BufRead *.cap set filetype=ruby
 
 " Ctrl + i for peepopen
 if has("gui_macvim")
@@ -78,3 +79,16 @@ if has("gui_macvim")
   map <C-i> <Plug>PeepOpen
 end
 
+" Consider this for clojure repl
+" :nnoremap <C-e> :Eval<CR>
+
+" Powerline is cool
+let g:Powerline_symbols = 'fancy'
+
+let g:lightline = {
+      \ 'component': {
+      \   'readonly': '%{&readonly?"⭤":""}',
+      \ },
+      \ 'separator': { 'left': '⮀', 'right': '⮂' },
+      \ 'subseparator': { 'left': "•", 'right': "•" }
+      \ }
