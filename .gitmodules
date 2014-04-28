@@ -55,3 +55,9 @@
 [submodule "bundle/lightline.vim"]
 	path = bundle/lightline.vim
 	url = https://github.com/itchyny/lightline.vim.git
+[submodule "bundle/vim-surround"]
+	path = bundle/vim-surround
+	url = https://github.com/tpope/vim-surround.git
+[submodule "bundle/bats.vim"]
+	path = bundle/bats.vim
+	url = https://github.com/rosstimson/bats.vim.git

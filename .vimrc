@@ -5,11 +5,21 @@ filetype plugin on
 call pathogen#infect()
 syntax on
 
+" Powerline is cool
+let g:Powerline_symbols = 'fancy'
+let g:lightline = {
+      \ 'component': {
+      \   'readonly': '%{&readonly?"⭤":""}',
+      \ },
+      \ 'separator': { 'left': "\ue0b0", 'right': "\ue0b2" },
+      \ 'subseparator': { 'left': "•", 'right': "•" }
+      \ }
+
 " Set color theme
 " let g:cange_style = 'dark'
 if has("gui_macvim")
-  colorscheme topfunky-light
-  set guifont=BPmono\ for\ Powerline:h15
+  colorscheme tomorrow
+  set guifont=Ubuntu\ Mono\ derivative\ Powerline:h17
   set linespace=3
 else
   colorscheme jellybeans
@@ -78,17 +88,3 @@ if has("gui_macvim")
   macmenu &File.New\ Tab key=<nop>
   map <C-i> <Plug>PeepOpen
 end
-
-" Consider this for clojure repl
-" :nnoremap <C-e> :Eval<CR>
-
-" Powerline is cool
-let g:Powerline_symbols = 'fancy'
-
-let g:lightline = {
-      \ 'component': {
-      \   'readonly': '%{&readonly?"⭤":""}',
-      \ },
-      \ 'separator': { 'left': '⮀', 'right': '⮂' },
-      \ 'subseparator': { 'left': "•", 'right': "•" }
-      \ }
