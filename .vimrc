@@ -22,7 +22,7 @@ if has("gui_macvim")
   set guifont=Ubuntu\ Mono\ derivative\ Powerline:h17
   set linespace=3
 else
-  colorscheme jellybeans
+  colorscheme tomorrow-night
 end
 
 " set statusline=[%n]\ %<%.99f\ %h%w%m%r%y\ %{fugitive#statusline()}%{exists('*CapsLockStatusline')?CapsLockStatusline():''}%=%-16(\ %l,%c-%v\ %)%P
@@ -48,7 +48,8 @@ else
   au BufWinEnter * let w:m2=matchadd('ErrorMsg', '\%>80v.\+', -1)
 endif
 
-" Fast grep
+
+"" Fast grep
 if executable('ag')
   " Use ag over grep
   set grepprg=ag\ --nogroup\ --nocolor
@@ -63,12 +64,13 @@ endif
 " bind K to grep word under cursor
 nnoremap K :grep! "\b<C-R><C-W>\b"<CR>:cw<CR>
 
-" FuzzyFinder
-let g:fuf_file_exclude = '\v\~$|(^|[/\\])tmp|(^|[/\\])vendor[/\\]bundle[/\\]'
 
+"" FuzzyFinder
+let g:fuf_file_exclude = '\v\~$|(^|[/\\])tmp|(^|[/\\])vendor[/\\]bundle[/\\]'
 " Cmd + T for fuzzyfinder
 nnoremap <C-t> :<C-u>FufFile **/<CR>
-" nnoremap <C-r> :FufRenewCache<CR>
+nnoremap <C-a> :<C-u>FufRenewCache<CR>
+
 
 " RSpec
 map <Leader>t :call RunCurrentSpecFile()<CR>
