@@ -30,16 +30,16 @@
   url = git://github.com/msanders/snipmate.vim.git
 [submodule "bundle/ag.vim"]
   path = bundle/ag.vim
-  url = https://github.com/rking/ag.vim
+  url = https://github.com/rking/ag.vim.git
 [submodule "bundle/vim-L9"]
   path = bundle/vim-L9
-  url = git@github.com:vim-scripts/L9.git
+  url = https://github.com/vim-scripts/L9.git
 [submodule "bundle/vim-fuzzyfinder"]
-	path = bundle/vim-fuzzyfinder
-	url = git@github.com:vim-scripts/FuzzyFinder.git
+  path = bundle/vim-fuzzyfinder
+  url = https://github.com/vim-scripts/FuzzyFinder.git
 [submodule "bundle/vim-clojure-static"]
 	path = bundle/vim-clojure-static
-	url = git@github.com:guns/vim-clojure-static.git
+	url = git://github.com/guns/vim-clojure-static.git
 [submodule "bundle/vim-fireplace"]
 	path = bundle/vim-fireplace
 	url = git://github.com/tpope/vim-fireplace.git
@@ -48,10 +48,10 @@
 	url = git://github.com/tpope/vim-classpath.git
 [submodule "bundle/vim-elixir"]
 	path = bundle/vim-elixir
-	url = git@github.com:elixir-lang/vim-elixir.git
+	url = git://github.com/elixir-lang/vim-elixir.git
 [submodule "bundle/vim-rspec"]
 	path = bundle/vim-rspec
-	url = git@github.com:thoughtbot/vim-rspec.git
+	url = git://github.com/thoughtbot/vim-rspec.git
 [submodule "bundle/lightline.vim"]
 	path = bundle/lightline.vim
 	url = https://github.com/itchyny/lightline.vim.git
