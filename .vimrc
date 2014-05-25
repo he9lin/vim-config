@@ -18,9 +18,10 @@ let g:lightline = {
 " Set color theme
 " let g:cange_style = 'dark'
 if has("gui_macvim")
-  colorscheme tomorrow
+  colorscheme topfunky-light
   set guifont=Ubuntu\ Mono\ derivative\ Powerline:h17
   set linespace=3
+  colorscheme tomorrow-night
 else
   colorscheme tomorrow-night
 end
