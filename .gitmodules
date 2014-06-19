@@ -73,3 +73,6 @@
 [submodule "bundle/vim-scala"]
 	path = bundle/vim-scala
 	url = https://github.com/derekwyatt/vim-scala.git
+[submodule "bundle/vim-theme-bronkow"]
+	path = bundle/vim-theme-bronkow
+	url = git://github.com/cange/vim-theme-bronkow.git
