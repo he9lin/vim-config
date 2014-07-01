@@ -5,9 +5,21 @@ filetype plugin on
 call pathogen#infect()
 syntax on
 
+" Set color theme
+if has("gui_macvim")
+  colorscheme hemisu
+  set guifont=Ubuntu\ Mono\ derivative\ Powerline:h17
+  set linespace=3
+  let lightline_colorscheme = 'solarized_light'
+else
+  colorscheme tomorrow-night
+  let lightline_colorscheme = 'default'
+end
+
 " Powerline is cool
 let g:Powerline_symbols = 'fancy'
 let g:lightline = {
+      \ 'colorscheme': lightline_colorscheme,
       \ 'component': {
       \   'readonly': '%{&readonly?"⭤":""}',
       \ },
@@ -15,18 +27,6 @@ let g:lightline = {
       \ 'subseparator': { 'left': "•", 'right': "•" }
       \ }
 
-" Set color theme
-" let g:cange_style = 'dark'
-if has("gui_macvim")
-  colorscheme topfunky-light
-  set guifont=Ubuntu\ Mono\ derivative\ Powerline:h17
-  set linespace=3
-  colorscheme tomorrow-night
-else
-  colorscheme tomorrow-night
-end
-
-" set statusline=[%n]\ %<%.99f\ %h%w%m%r%y\ %{fugitive#statusline()}%{exists('*CapsLockStatusline')?CapsLockStatusline():''}%=%-16(\ %l,%c-%v\ %)%P
 set number
 set laststatus=2
 set tabstop=2
@@ -66,8 +66,30 @@ endif
 nnoremap K :grep! "\b<C-R><C-W>\b"<CR>:cw<CR>
 
 
-"" FuzzyFinder
-let g:fuf_file_exclude = '\v\~$|(^|[/\\])tmp|(^|[/\\])vendor[/\\]bundle[/\\]'
+" FuzzyFinder should ignore all files in .gitignore
+let ignorefiles = [ $HOME . "/.gitignore", ".gitignore" ]
+let exclude_vcs = '\.(hg|git|bzr|svn|cvs)'
+let ignore = '\v\~$'
+
+for ignorefile in ignorefiles
+  if filereadable(ignorefile)
+    for line in readfile(ignorefile)
+      if match(line, '^\s*$') == -1 && match(line, '^#') == -1
+        let line = substitute(line, '^/', '', '')
+        let line = substitute(line, '\.', '\\.', 'g')
+        let line = substitute(line, '\*', '.*', 'g')
+        let ignore .= '|^' . line
+      endif
+    endfor
+  endif
+
+  let ignore .= '|^' . exclude_vcs
+  let g:fuf_coveragefile_exclude = ignore
+  let g:fuf_file_exclude = ignore
+  let g:fuf_dir_exclude = ignore
+endfor
+
+
 " Cmd + T for fuzzyfinder
 nnoremap <C-t> :<C-u>FufFile **/<CR>
 nnoremap <C-a> :<C-u>FufRenewCache<CR>
