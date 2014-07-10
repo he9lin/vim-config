@@ -52,9 +52,6 @@
 [submodule "bundle/vim-rspec"]
 	path = bundle/vim-rspec
 	url = git://github.com/thoughtbot/vim-rspec.git
-[submodule "bundle/lightline.vim"]
-	path = bundle/lightline.vim
-	url = https://github.com/itchyny/lightline.vim.git
 [submodule "bundle/vim-surround"]
 	path = bundle/vim-surround
 	url = https://github.com/tpope/vim-surround.git
@@ -76,3 +73,6 @@
 [submodule "bundle/vim-theme-bronkow"]
 	path = bundle/vim-theme-bronkow
 	url = git://github.com/cange/vim-theme-bronkow.git
+[submodule "bundle/vim-airline"]
+	path = bundle/vim-airline
+	url = https://github.com/bling/vim-airline

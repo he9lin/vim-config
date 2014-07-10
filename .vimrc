@@ -13,10 +13,17 @@ if has("gui_macvim")
   let lightline_colorscheme = 'solarized_light'
 else
   colorscheme tomorrow-night
-  let lightline_colorscheme = 'default'
+  let lightline_colorscheme = 'solarized_dark'
 end
 
 " Powerline is cool
+let g:airline_powerline_fonts = 1
+if !exists('g:airline_symbols')
+    let g:airline_symbols = {}
+  endif
+" let g:airline_symbols.space = ""
+let g:airline_theme='luna'
+
 let g:Powerline_symbols = 'fancy'
 let g:lightline = {
       \ 'colorscheme': lightline_colorscheme,
