@@ -12,6 +12,7 @@ if has("gui_macvim")
   set linespace=3
 else
   colorscheme molokai
+  let g:molokai_original = 1
 end
 
 set cursorline
