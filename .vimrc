@@ -10,12 +10,12 @@ if has("gui_macvim")
   colorscheme hemisu
   set guifont=Ubuntu\ Mono\ derivative\ Powerline:h17
   set linespace=3
-  let lightline_colorscheme = 'solarized_light'
 else
   colorscheme molokai
-  highlight Normal ctermbg=none
-  let lightline_colorscheme = 'solarized_dark'
 end
+
+set cursorline
+set cursorcolumn
 
 " Powerline is cool
 let g:airline_powerline_fonts = 1
@@ -23,16 +23,7 @@ if !exists('g:airline_symbols')
   let g:airline_symbols = {}
 endif
 let g:airline_theme='luna'
-
 let g:Powerline_symbols = 'fancy'
-let g:lightline = {
-      \ 'colorscheme': lightline_colorscheme,
-      \ 'component': {
-      \   'readonly': '%{&readonly?"⭤":""}',
-      \ },
-      \ 'separator': { 'left': "\ue0b0", 'right': "\ue0b2" },
-      \ 'subseparator': { 'left': "•", 'right': "•" }
-      \ }
 
 set number
 set laststatus=2
@@ -72,7 +63,6 @@ endif
 " bind K to grep word under cursor
 nnoremap K :grep! "\b<C-R><C-W>\b"<CR>:cw<CR>
 
-
 " FuzzyFinder should ignore all files in .gitignore
 let ignorefiles = [ $HOME . "/.gitignore", ".gitignore" ]
 let exclude_vcs = '\.(hg|git|bzr|svn|cvs)'
@@ -96,20 +86,21 @@ for ignorefile in ignorefiles
   let g:fuf_dir_exclude = ignore
 endfor
 
-
 " Cmd + T for fuzzyfinder
 nnoremap <C-t> :<C-u>FufFile **/<CR>
 nnoremap <C-a> :<C-u>FufRenewCache<CR>
 
-
-" RSpec
-map <Leader>t :call RunCurrentSpecFile()<CR>
-map <Leader>s :call RunNearestSpec()<CR>
-map <Leader>l :call RunLastSpec()<CR>
-map <Leader>a :call RunAllSpecs()<CR>
-
 " Ruby
-map <Leader>m :w\|:!~/.rbenv/shims/ruby %<CR>
+au FileType ruby call FileType_Ruby()
+function! FileType_Ruby()
+  if exists("b:did_ftruby") | return | endif
+  let b:did_ftruby = 1
+  map <Leader>m :w\|:!~/.rbenv/shims/ruby %<CR>
+  map <Leader>t :call RunCurrentSpecFile()<CR>
+  map <Leader>s :call RunNearestSpec()<CR>
+  map <Leader>l :call RunLastSpec()<CR>
+  map <Leader>a :call RunAllSpecs()<CR>
+endfunction
 
 " Handlbar hbs
 au BufNewFile,BufRead *.hbs set filetype=html
@@ -120,3 +111,12 @@ if has("gui_macvim")
   macmenu &File.New\ Tab key=<nop>
   map <C-i> <Plug>PeepOpen
 end
+
+" Swift
+au BufRead,BufNewFile *.swift setfiletype swift
+au FileType swift call FileType_Swift()
+function! FileType_Swift()
+  if exists("b:did_ftswift") | return | endif
+  let b:did_ftswift = 1
+  map <Leader>m :w\|:! xcrun swift -i %<CR>
+endfunction
