@@ -103,6 +103,16 @@ function! FileType_Ruby()
   map <Leader>a :call RunAllSpecs()<CR>
 endfunction
 
+" Elixir
+au BufRead,BufNewFile *.exs setfiletype exs
+au FileType exs call FileType_Elixir()
+function! FileType_Elixir()
+  if exists("b:did_ftelixir") | return | endif
+  let b:did_ftelixir = 1
+  map <Leader>m :w\|:!mix test %<CR>
+  map <Leader>s :w\|:!mix test<CR>
+endfunction
+
 " Handlbar hbs
 au BufNewFile,BufRead *.hbs set filetype=html
 au BufNewFile,BufRead *.cap set filetype=ruby
