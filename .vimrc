@@ -8,12 +8,21 @@ syntax on
 " Set color theme
 if has("gui_macvim")
   colorscheme hemisu
-  set guifont=Ubuntu\ Mono\ derivative\ Powerline:h17
+  set guifont=Hermit:h13
   set linespace=3
+  set background=light
+  " let g:airline_theme='light'
 else
   colorscheme molokai
   let g:molokai_original = 1
+  let g:airline_theme='luna'
 end
+
+colorscheme molokai
+" set background=dark
+let g:molokai_original = 1
+let g:airline_theme='luna'
+set guifont=Hermit:h13
 
 set cursorline
 set cursorcolumn
@@ -23,7 +32,6 @@ let g:airline_powerline_fonts = 1
 if !exists('g:airline_symbols')
   let g:airline_symbols = {}
 endif
-let g:airline_theme='luna'
 let g:Powerline_symbols = 'fancy'
 
 set number
@@ -52,7 +60,7 @@ endif
 "" Fast grep
 if executable('ag')
   " Use ag over grep
-  set grepprg=ag\ --nogroup\ --nocolor
+  set grepprg=ag\ --nogroup\ --nocolor\ -g
 
   " Use ag in CtrlP for listing files. Lightning fast and respects .gitignore
   let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
@@ -111,6 +119,14 @@ function! FileType_Elixir()
   let b:did_ftelixir = 1
   map <Leader>m :w\|:!mix test %<CR>
   map <Leader>s :w\|:!mix test<CR>
+endfunction
+
+" Haskell
+au FileType haskell call FileType_Haskell()
+function! FileType_Haskell()
+  if exists("b:did_fthaskell") | return | endif
+  let b:did_fthaskell = 1
+  map <Leader>m :w\|:!runhaskell %<CR>
 endfunction
 
 " Handlbar hbs
