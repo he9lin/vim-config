@@ -25,9 +25,6 @@
 [submodule "bundle/vim-unimpaired"]
   path = bundle/vim-unimpaired
   url = git://github.com/tpope/vim-unimpaired.git
-[submodule "bundle/vim-snipmate"]
-  path = bundle/vim-snipmate
-  url = git://github.com/msanders/snipmate.vim.git
 [submodule "bundle/ag.vim"]
   path = bundle/ag.vim
   url = https://github.com/rking/ag.vim.git
@@ -97,3 +94,12 @@
 [submodule "bundle/vimux"]
 	path = bundle/vimux
 	url = git@github.com:benmills/vimux.git
+[submodule "colors/vim-atom-dark"]
+	path = colors/vim-atom-dark
+	url = git@github.com:gosukiwi/vim-atom-dark.git
+[submodule "bundle/vim-snippets"]
+	path = bundle/vim-snippets
+	url = git@github.com:honza/vim-snippets.git
+[submodule "bundle/vim-snipmate2"]
+	path = bundle/vim-snipmate2
+	url = git@github.com:garbas/vim-snipmate.git

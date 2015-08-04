@@ -13,6 +13,8 @@ end
 let g:molokai_original = 1
 let g:airline_theme='luna'
 colorscheme jellybeans
+highlight Normal ctermbg=NONE
+highlight nonText ctermbg=NONE
 let g:molokai_original = 1
 let g:airline_theme='luna'
 set guifont=Roboto\ Mono:h14
@@ -144,3 +146,4 @@ function! FileType_Swift()
 endfunction
 
 autocmd VimResized * :wincmd =
+
