@@ -88,3 +88,12 @@
 [submodule "bundle/nerdcommenter"]
 	path = bundle/nerdcommenter
 	url = git@github.com:scrooloose/nerdcommenter.git
+[submodule "vim-tmux-runner"]
+	path = vim-tmux-runner
+	url = git@github.com:christoomey/vim-tmux-runner.git
+[submodule "bundle/vim-tmux-runner"]
+	path = bundle/vim-tmux-runner
+	url = git@github.com:christoomey/vim-tmux-runner.git
+[submodule "bundle/vimux"]
+	path = bundle/vimux
+	url = git@github.com:benmills/vimux.git

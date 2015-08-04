@@ -7,23 +7,15 @@ syntax on
 
 " Set color theme
 if has("gui_macvim")
-  colorscheme hemisu
-  set guifont=Hermit:h13
   set linespace=3
-  set background=light
-  " let g:airline_theme='light'
-else
-  colorscheme molokai
-  let g:molokai_original = 1
-  let g:airline_theme='luna'
 end
 
-colorscheme molokai
-" set background=dark
 let g:molokai_original = 1
 let g:airline_theme='luna'
-set guifont=Hermit:h13
-
+colorscheme jellybeans
+let g:molokai_original = 1
+let g:airline_theme='luna'
+set guifont=Roboto\ Mono:h14
 set cursorline
 set cursorcolumn
 
@@ -44,7 +36,7 @@ set guioptions-=L
 set guioptions-=r
 set directory=/tmp
 
-let mapleader = ","
+let mapleader = " "
 
 " Clean up white spaces
 autocmd BufWritePre * :%s/\s\+$//e
@@ -104,11 +96,14 @@ au FileType ruby call FileType_Ruby()
 function! FileType_Ruby()
   if exists("b:did_ftruby") | return | endif
   let b:did_ftruby = 1
-  map <Leader>m :w\|:!~/.rbenv/shims/ruby %<CR>
-  map <Leader>t :call RunCurrentSpecFile()<CR>
-  map <Leader>s :call RunNearestSpec()<CR>
-  map <Leader>l :call RunLastSpec()<CR>
-  map <Leader>a :call RunAllSpecs()<CR>
+  " map <Leader>t :call RunCurrentSpecFile()<CR>
+  " map <Leader>s :call RunNearestSpec()<CR>
+  " map <Leader>l :call RunLastSpec()<CR>
+  " map <Leader>a :call RunAllSpecs()<CR>
+
+  map <Leader>o :call VimuxRunCommand("bin/rspec " . bufname("%") . ":" . line("."))<CR>
+  map <Leader>m :call VimuxRunCommand("bin/rspec " . bufname("%"))<CR>
+  map <Leader>n :call VimuxRunCommand("bin/rspec spec/")<CR>
 endfunction
 
 " Elixir
@@ -147,3 +142,5 @@ function! FileType_Swift()
   let b:did_ftswift = 1
   map <Leader>m :w\|:! xcrun swift -i %<CR>
 endfunction
+
+autocmd VimResized * :wincmd =
