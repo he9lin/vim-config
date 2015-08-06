@@ -12,9 +12,11 @@ end
 
 let g:molokai_original = 1
 let g:airline_theme='luna'
-colorscheme jellybeans
+colorscheme onedark
+let &colorcolumn="80,".join(range(81,999),",")
 highlight Normal ctermbg=NONE
 highlight nonText ctermbg=NONE
+highlight ColorColumn ctermbg=235 guibg=#2c2d27
 let g:molokai_original = 1
 let g:airline_theme='luna'
 set guifont=Roboto\ Mono:h14
@@ -93,6 +95,15 @@ endfor
 nnoremap <C-t> :<C-u>FufFile **/<CR>
 nnoremap <C-a> :<C-u>FufRenewCache<CR>
 
+set wildignore=*.swp,*.bak,*.pyc,*.class,*.jar,*.gif,*.png,*.jpg0,tmp,log
+let g:CommandTWildIgnore=&wildignore
+let g:CommandTFileScanner = "git"
+let g:CommandTMaxHeight = 30
+let g:CommandTMaxFiles = 500000
+let g:CommandTSCMDirectories='.git,.hg,.svn,.bzr,_darcs,manifest.webapp'
+
+map <Leader>r :call VimuxRunLastCommand()<CR>
+
 " Ruby
 au FileType ruby call FileType_Ruby()
 function! FileType_Ruby()
@@ -131,10 +142,10 @@ au BufNewFile,BufRead *.hbs set filetype=html
 au BufNewFile,BufRead *.cap set filetype=ruby
 
 " Ctrl + i for peepopen
-if has("gui_macvim")
-  macmenu &File.New\ Tab key=<nop>
-  map <C-i> <Plug>PeepOpen
-end
+" if has("gui_macvim")
+"   macmenu &File.New\ Tab key=<nop>
+"   map <C-i> <Plug>PeepOpen
+" end
 
 " Swift
 au BufRead,BufNewFile *.swift setfiletype swift
@@ -146,4 +157,15 @@ function! FileType_Swift()
 endfunction
 
 autocmd VimResized * :wincmd =
+noremap <Leader>s :update<CR>
+runtime macros/matchit.vim
 
+function! NumberToggle()
+  if(&relativenumber == 1)
+    set number
+  else
+    set relativenumber
+  endif
+endfunc
+
+nnoremap <C-n> :call NumberToggle()<CR>
