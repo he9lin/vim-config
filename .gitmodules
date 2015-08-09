@@ -58,9 +58,6 @@
 [submodule "bundle/bats.vim"]
 	path = bundle/bats.vim
 	url = https://github.com/rosstimson/bats.vim.git
-[submodule "bundle/tmuxline.vim"]
-	path = bundle/tmuxline.vim
-	url = https://github.com/edkolev/tmuxline.vim.git
 [submodule "bundle/vim-github-colorscheme"]
 	path = bundle/vim-github-colorscheme
 	url = https://github.com/endel/vim-github-colorscheme.git
