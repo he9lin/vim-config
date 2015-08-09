@@ -56,7 +56,7 @@ endif
 "" Fast grep
 if executable('ag')
   " Use ag over grep
-  set grepprg=ag\ --nogroup\ --nocolor\ -g
+  set grepprg=ag\ --nogroup\ --nocolor
 
   " Use ag in CtrlP for listing files. Lightning fast and respects .gitignore
   let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
@@ -67,6 +67,7 @@ endif
 
 " bind K to grep word under cursor
 nnoremap K :grep! "\b<C-R><C-W>\b"<CR>:cw<CR>
+nnoremap \ :Ag<SPACE>
 
 " FuzzyFinder should ignore all files in .gitignore
 let ignorefiles = [ $HOME . "/.gitignore", ".gitignore" ]
@@ -91,16 +92,15 @@ for ignorefile in ignorefiles
   let g:fuf_dir_exclude = ignore
 endfor
 
-" Cmd + T for fuzzyfinder
-nnoremap <C-t> :<C-u>FufFile **/<CR>
-nnoremap <C-a> :<C-u>FufRenewCache<CR>
+" nnoremap <C-t> :<C-u>FufFile **/<CR>
+" nnoremap <C-a> :<C-u>FufRenewCache<CR>
 
-set wildignore=*.swp,*.bak,*.pyc,*.class,*.jar,*.gif,*.png,*.jpg0,tmp,log
+set wildignore=*.swp,*.bak,*.pyc,*.class,*.jar,*.gif,*.png,*.jpg0,tmp,log,dist,node_modules,bower_components
 let g:CommandTWildIgnore=&wildignore
-let g:CommandTFileScanner = "git"
-let g:CommandTMaxHeight = 30
-let g:CommandTMaxFiles = 500000
-let g:CommandTSCMDirectories='.git,.hg,.svn,.bzr,_darcs,manifest.webapp'
+" let g:CommandTFileScanner = "git"
+" let g:CommandTMaxHeight = 30
+" let g:CommandTMaxFiles = 500000
+" let g:CommandTSCMDirectories='.git,.hg,.svn,.bzr,_darcs,manifest.webapp'
 
 map <Leader>r :call VimuxRunLastCommand()<CR>
 
@@ -141,12 +141,6 @@ endfunction
 au BufNewFile,BufRead *.hbs set filetype=html
 au BufNewFile,BufRead *.cap set filetype=ruby
 
-" Ctrl + i for peepopen
-" if has("gui_macvim")
-"   macmenu &File.New\ Tab key=<nop>
-"   map <C-i> <Plug>PeepOpen
-" end
-
 " Swift
 au BufRead,BufNewFile *.swift setfiletype swift
 au FileType swift call FileType_Swift()
@@ -169,3 +163,8 @@ function! NumberToggle()
 endfunc
 
 nnoremap <C-n> :call NumberToggle()<CR>
+nnoremap <Leader>l <C-W><C-L>
+nnoremap <Leader>h <C-W><C-H>
+nnoremap <Leader>j <C-W><C-J>
+nnoremap <Leader>k <C-W><C-K>
+
