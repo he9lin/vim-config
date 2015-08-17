@@ -95,7 +95,7 @@ endfor
 " nnoremap <C-t> :<C-u>FufFile **/<CR>
 " nnoremap <C-a> :<C-u>FufRenewCache<CR>
 
-set wildignore=*.swp,*.bak,*.pyc,*.class,*.jar,*.gif,*.png,*.jpg0,tmp,log,dist,node_modules,bower_components
+set wildignore=*.swp,*.bak,*.pyc,*.class,*.jar,*.gif,*.png,*.jpg0,tmp,log,dist,node_modules,bower_components,public/uploads
 let g:CommandTWildIgnore=&wildignore
 " let g:CommandTFileScanner = "git"
 " let g:CommandTMaxHeight = 30
@@ -134,7 +134,7 @@ au FileType haskell call FileType_Haskell()
 function! FileType_Haskell()
   if exists("b:did_fthaskell") | return | endif
   let b:did_fthaskell = 1
-  map <Leader>m :w\|:!runhaskell %<CR>
+  map <Leader>n :call VimuxRunCommand("cabal test")<CR>
 endfunction
 
 " Handlbar hbs

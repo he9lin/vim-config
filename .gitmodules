@@ -82,9 +82,6 @@
 [submodule "bundle/vim-mustache-handlebars"]
 	path = bundle/vim-mustache-handlebars
 	url = https://github.com/mustache/vim-mustache-handlebars.git
-[submodule "bundle/nerdcommenter"]
-	path = bundle/nerdcommenter
-	url = git@github.com:scrooloose/nerdcommenter.git
 [submodule "vim-tmux-runner"]
 	path = vim-tmux-runner
 	url = git@github.com:christoomey/vim-tmux-runner.git
@@ -109,3 +106,6 @@
 [submodule "bundle/tlib_vim"]
 	path = bundle/tlib_vim
 	url = https://github.com/tomtom/tlib_vim.git
+[submodule "bundle/tcomment"]
+	path = bundle/tcomment
+	url = git@github.com:tomtom/tcomment_vim.git
