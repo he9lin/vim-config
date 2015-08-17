@@ -161,6 +161,7 @@ function! NumberToggle()
     set relativenumber
   endif
 endfunc
+set relativenumber
 
 nnoremap <C-n> :call NumberToggle()<CR>
 nnoremap <Leader>l <C-W><C-L>
