@@ -10,15 +10,15 @@ if has("gui_macvim")
   set linespace=3
 end
 
-let g:molokai_original = 1
-let g:airline_theme='luna'
-colorscheme onedark
-let &colorcolumn="80,".join(range(81,999),",")
+" colorscheme onedark
+colorscheme hybrid_material
+" let &colorcolumn="80,".join(range(81,999),",")
 highlight Normal ctermbg=NONE
 highlight nonText ctermbg=NONE
 highlight ColorColumn ctermbg=235 guibg=#2c2d27
 let g:molokai_original = 1
-let g:airline_theme='luna'
+let g:airline_theme='badwolf'
+let g:airline#extensions#tabline#enabled = 1
 set guifont=Roboto\ Mono:h14
 set cursorline
 set cursorcolumn
@@ -95,7 +95,7 @@ endfor
 " nnoremap <C-t> :<C-u>FufFile **/<CR>
 " nnoremap <C-a> :<C-u>FufRenewCache<CR>
 
-set wildignore=*.swp,*.bak,*.pyc,*.class,*.jar,*.gif,*.png,*.jpg0,tmp,log,dist,node_modules,bower_components,public/uploads
+set wildignore=*.swp,*.bak,*.pyc,*.class,*.jar,*.gif,*.png,*.jpg0,tmp,log,dist,node_modules,bower_components,public/uploads,log/*.log
 let g:CommandTWildIgnore=&wildignore
 " let g:CommandTFileScanner = "git"
 " let g:CommandTMaxHeight = 30
@@ -163,6 +163,7 @@ function! NumberToggle()
 endfunc
 set relativenumber
 
+nnoremap <Leader>d :bp\|bd #<CR>
 nnoremap <C-n> :call NumberToggle()<CR>
 nnoremap <Leader>l <C-W><C-L>
 nnoremap <Leader>h <C-W><C-H>
