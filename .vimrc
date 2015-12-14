@@ -13,14 +13,21 @@ if has("gui_running")
   let g:airline_theme='light'
   highlight ColorColumn ctermbg=255 guibg=#e5e5e5
 else
-  colorscheme louver
+  " colorscheme hybrid_material
   " set background=dark
   " let g:airline_theme='badwolf'
   " highlight ColorColumn ctermbg=235 guibg=#2c2d27
+  colorscheme lightning
   set background=light
-  let g:airline_theme='light'
+  let g:airline_theme='pencil'
   highlight ColorColumn ctermbg=255 guibg=#e5e5e5
   hi CursorLine term=NONE cterm=NONE ctermbg=255
+  highlight CommandTHighlightColor term=reverse
+    \ cterm=bold ctermbg=0* ctermfg=7*
+    \ guibg=Grey
+  let g:CommandTHighlightColor='CommandTHighlightColor'
+  highlight Pmenu cterm=NONE ctermbg=255 ctermfg=0* guibg=Grey
+  highlight PmenuSel cterm=bold ctermbg=255 ctermfg=0* guibg=Grey
 endif
 
 highlight Normal ctermbg=NONE
