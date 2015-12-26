@@ -16,12 +16,14 @@ else
   " colorscheme hybrid_material
   " set background=dark
   " let g:airline_theme='badwolf'
-  " highlight ColorColumn ctermbg=235 guibg=#2c2d27
-  colorscheme lightning
+  " highlight ColorColumn ctermbg=234 guibg=#2c2d27
+  " highlight ColorColumn ctermbg=236 guibg=#2c2d27
   set background=light
+  colorscheme PaperColor
   let g:airline_theme='pencil'
   highlight ColorColumn ctermbg=255 guibg=#e5e5e5
   hi CursorLine term=NONE cterm=NONE ctermbg=255
+  hi CursorColumn term=NONE cterm=NONE ctermbg=255
   highlight CommandTHighlightColor term=reverse
     \ cterm=bold ctermbg=0* ctermfg=7*
     \ guibg=Grey
@@ -84,7 +86,7 @@ endif
 nnoremap K :grep! "\b<C-R><C-W>\b"<CR>:cw<CR>
 nnoremap \ :Ag<SPACE>
 
-set wildignore=*.swp,*.bak,*.pyc,*.class,*.jar,*.gif,*.png,*.jpg0,tmp,log,dist,node_modules,bower_components,public/sites,public/uploads,log/*.log,build,spec/tmp,_build
+set wildignore=*.swp,*.bak,*.pyc,*.class,*.jar,*.gif,*.png,*.jpg0,tmp,log,dist,node_modules,bower_components,public/sites,public/uploads,log/*.log,build,spec/tmp,_build,deps
 let g:CommandTWildIgnore=&wildignore
 " let g:CommandTFileScanner = "git"
 " let g:CommandTMaxHeight = 30
