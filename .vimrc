@@ -13,23 +13,9 @@ if has("gui_running")
   let g:airline_theme='light'
   highlight ColorColumn ctermbg=255 guibg=#e5e5e5
 else
-  " colorscheme hybrid_material
-  " set background=dark
-  " let g:airline_theme='badwolf'
-  " highlight ColorColumn ctermbg=234 guibg=#2c2d27
-  " highlight ColorColumn ctermbg=236 guibg=#2c2d27
-  set background=light
-  colorscheme PaperColor
-  let g:airline_theme='pencil'
-  highlight ColorColumn ctermbg=255 guibg=#e5e5e5
-  hi CursorLine term=NONE cterm=NONE ctermbg=255
-  hi CursorColumn term=NONE cterm=NONE ctermbg=255
-  highlight CommandTHighlightColor term=reverse
-    \ cterm=bold ctermbg=0* ctermfg=7*
-    \ guibg=Grey
-  let g:CommandTHighlightColor='CommandTHighlightColor'
-  highlight Pmenu cterm=NONE ctermbg=255 ctermfg=0* guibg=Grey
-  highlight PmenuSel cterm=bold ctermbg=255 ctermfg=0* guibg=Grey
+  colorscheme hybrid_material
+  let g:airline_theme='badwolf'
+  highlight ColorColumn ctermbg=236 guibg=#2c2d27
 endif
 
 highlight Normal ctermbg=NONE
@@ -59,16 +45,12 @@ set directory=/tmp
 
 let mapleader = " "
 
-" Clean up white spaces
-autocmd BufWritePre * :%s/\s\+$//e
-
 " Set color column
 if exists('+colorcolumn')
   set colorcolumn=80
 else
   au BufWinEnter * let w:m2=matchadd('ErrorMsg', '\%>80v.\+', -1)
 endif
-
 
 "" Fast grep
 if executable('ag')
@@ -86,12 +68,8 @@ endif
 nnoremap K :grep! "\b<C-R><C-W>\b"<CR>:cw<CR>
 nnoremap \ :Ag<SPACE>
 
-set wildignore=*.swp,*.bak,*.pyc,*.class,*.jar,*.gif,*.png,*.jpg0,tmp,log,dist,node_modules,bower_components,public/sites,public/uploads,log/*.log,build,spec/tmp,_build,deps
-let g:CommandTWildIgnore=&wildignore
-" let g:CommandTFileScanner = "git"
-" let g:CommandTMaxHeight = 30
-" let g:CommandTMaxFiles = 500000
-" let g:CommandTSCMDirectories='.git,.hg,.svn,.bzr,_darcs,manifest.webapp'
+let g:CommandTWildIgnore=&wildignore . "*.swp,*.bak,*.pyc,*.class,*.jar,*.gif,*.png,*.jpg0,tmp,log,dist,node_modules,bower_components,public/sites,public/uploads,log/*.log,build,spec/tmp,_build,deps"
+let g:CommandTFileScanner = "git"
 
 map <Leader>r :call VimuxRunLastCommand()<CR>
 
@@ -113,12 +91,12 @@ function! FileType_Haskell()
   map <Leader>n :call VimuxRunCommand("cabal test")<CR>
 endfunction
 
-" Handlbar hbs
 au BufNewFile,BufRead *.hbs set filetype=html
 au BufNewFile,BufRead *.cap set filetype=ruby
+au BufWritePre * :%s/\s\+$//e " Clean up white spaces
+au VimResized * :wincmd =
+au BufEnter * set relativenumber
 
-autocmd VimResized * :wincmd =
-noremap <Leader>s :update<CR>
 runtime macros/matchit.vim
 
 function! NumberToggle()
@@ -128,10 +106,11 @@ function! NumberToggle()
     set relativenumber
   endif
 endfunc
-set relativenumber
+command! NumberToggle call NumberToggle()
 
+nnoremap <C-n> :NumberToggle<CR>
+nnoremap <Leader>s :update<CR>
 nnoremap <Leader>d :bp\|bd #<CR>
-nnoremap <C-n> :call NumberToggle()<CR>
 nnoremap <Leader>l <C-W><C-L>
 nnoremap <Leader>h <C-W><C-H>
 nnoremap <Leader>j <C-W><C-J>
