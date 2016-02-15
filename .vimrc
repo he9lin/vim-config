@@ -13,13 +13,13 @@ if has("gui_running")
   let g:airline_theme='light'
   highlight ColorColumn ctermbg=255 guibg=#e5e5e5
 else
-  colorscheme hybrid_material
+  colorscheme onedark
   let g:airline_theme='badwolf'
-  highlight ColorColumn ctermbg=236 guibg=#2c2d27
+  highlight ColorColumn ctermbg=234 guibg=#2c2d27
 endif
 
-highlight Normal ctermbg=NONE
-highlight nonText ctermbg=NONE
+" highlight Normal ctermbg=NONE
+" highlight nonText ctermbg=NONE
 
 let g:airline#extensions#tabline#enabled = 1
 set guifont=Hack:h14
@@ -69,7 +69,6 @@ nnoremap K :grep! "\b<C-R><C-W>\b"<CR>:cw<CR>
 nnoremap \ :Ag<SPACE>
 
 let g:CommandTWildIgnore=&wildignore . "*.swp,*.bak,*.pyc,*.class,*.jar,*.gif,*.png,*.jpg0,tmp,log,dist,node_modules,bower_components,public/sites,public/uploads,log/*.log,build,spec/tmp,_build,deps"
-let g:CommandTFileScanner = "git"
 
 map <Leader>r :call VimuxRunLastCommand()<CR>
 
@@ -96,6 +95,8 @@ au BufNewFile,BufRead *.cap set filetype=ruby
 au BufWritePre * :%s/\s\+$//e " Clean up white spaces
 au VimResized * :wincmd =
 au BufEnter * set relativenumber
+au InsertEnter * :set number
+au InsertLeave * :set relativenumber
 
 runtime macros/matchit.vim
 
@@ -108,6 +109,17 @@ function! NumberToggle()
 endfunc
 command! NumberToggle call NumberToggle()
 
+function! PasteToggle()
+  if(&paste == 1)
+    set nopaste
+    echo "nopaste mode"
+  else
+    set paste
+    echo "paste mode"
+  endif
+endfunc
+command! PasteToggle call PasteToggle()
+
 nnoremap <C-n> :NumberToggle<CR>
 nnoremap <Leader>s :update<CR>
 nnoremap <Leader>d :bp\|bd #<CR>
@@ -115,6 +127,7 @@ nnoremap <Leader>l <C-W><C-L>
 nnoremap <Leader>h <C-W><C-H>
 nnoremap <Leader>j <C-W><C-J>
 nnoremap <Leader>k <C-W><C-K>
+nnoremap <Leader>p :PasteToggle<CR>
 
 " Per project vimrc
 set exrc
